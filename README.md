@@ -9,8 +9,10 @@
 </p>
 
 <p align="center">
-  <img src="images/1-ezgif.com-optimize.gif" alt="Time Manager and Validation System">
+  <img src="images/2.gif" alt="Time Manager and Validation System">
 </p>
+
+
 
 ---
 

@@ -63,7 +63,7 @@
 * לגשת לאזור הניהול
 
 <p align="center">
-  <img src="images/10.png" alt="דף הבית" width="80%">
+  <img src="images/עמוד הבית.png" alt="דף הבית" width="80%">
 </p>
 
 ---
@@ -126,7 +126,7 @@
 המערכת כוללת גם מקלדת מותאמת אישית, המאפשרת שימוש נוח גם בסביבה שבה אין צורך או אפשרות להשתמש במקלדת רגילה.
 
 <p align="center">
-  <img src="images/20.png" alt="עמוד הרשמה" width="80%">
+  <img src="images/הרשמה.png" alt="עמוד הרשמה" width="80%">
 </p>
 
 ---
@@ -138,7 +138,7 @@
 לאחר התחברות, המנהל מקבל גישה ללוח בקרה הכולל מגוון פעולות ניהול.
 
 <p align="center">
-  <img src="images/10b.png" alt="אזור הניהול" width="80%">
+  <img src="images/כניסת מנהל.png" alt="אזור הניהול" width="80%">
 </p>
 
 ## אפשרויות הניהול
@@ -224,13 +224,13 @@
 ## דף הבית
 
 <p align="center">
-  <img src="images/10.png" alt="Home Page" width="80%">
+  <img src="images/עמוד הבית.png" alt="Home Page" width="80%">
 </p>
 
 ## אזור הניהול
 
 <p align="center">
-  <img src="images/10b.png" alt="Admin Dashboard" width="80%">
+  <img src="images/כניסת מנהל.png" alt="Admin Dashboard" width="80%">
 </p>
 
 ## מסכים נוספים

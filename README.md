@@ -97,7 +97,7 @@
 * סטטוס התקדמות
 * נתונים נוספים הקשורים להשתתפות במבצע
 <p align="center">
-  <img src="images/1.gif" alt="עמוד הרשמה" width="80%">
+  <img src="images/1.gif" alt="אזור אישי" width="80%">
 </p>
 ---
 

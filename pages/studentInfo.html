@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>מידע אישי לתלמיד</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            max-width: 700px;
+            width: 100%;
+            margin-top: 30px;
+        }
+        h2 {
+            text-align: center;
+            margin: 0 0 30px 0;
+            color: #333;
+            font-size: 24px;
+        }
+        h3 {
+            margin: 25px 0 10px 0;
+            color: #555;
+            font-size: 18px;
+        }
+        .input-section {
+            margin-bottom: 30px;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 12px;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+        #get-info {
+            width: 100%;
+            padding: 12px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        #get-info:hover {
+            background-color: #0056b3;
+        }
+        .message {
+            margin: 15px 0;
+            font-weight: bold;
+            text-align: center;
+            min-height: 20px;
+        }
+        .hours-section {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 6px;
+            margin: 20px 0;
+            border: 1px solid #e0e0e0;
+        }
+        #total-hours {
+            font-size: 28px;
+            font-weight: bold;
+            color: #007bff;
+            margin-top: 10px;
+            text-align: center;
+        }
+        .table-section {
+            margin: 25px 0;
+        }
+        .table-wrapper {
+            max-height: 400px;
+            overflow-y: auto;
+            margin-top: 15px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 12px;
+            border: 1px solid #ddd;
+            text-align: center;
+        }
+        tbody tr:hover {
+            background-color: #f8f9fa;
+        }
+        th {
+            background-color: #007bff;
+            color: #fff;
+            position: sticky;
+            top: 0;
+        }
+        .return-icon {
+            font-size: xx-large;
+            left: 50px;
+            position: fixed;
+            text-decoration: none;
+        }
+
+        .stage-buttons {
+            display: flex;
+            gap: 12px;
+            margin-top: 30px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .stage-btn {
+            flex: 1;
+            min-width: 120px;
+            background-color: #ffc107;
+            color: #000;
+            font-weight: bold;
+            padding: 10px 16px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        .stage-btn:hover {
+            background-color: #e0a800;
+        }
+
+</style>
+</head>
+<body>
+        <a class="return-icon"  href="../index.html">⬅️</a>
+
+<div class="container">
+    <h2>מידע אישי לתלמיד</h2>
+
+    <div class="input-section">
+        <input type="text" id="student-id" placeholder="הזן מזהה תלמיד">
+        <button id="get-info">הצג שלב נוכחי</button>
+        <div class="message" id="message"></div>
+    </div>
+
+    <div class="hours-section">
+        <h3>סך השעות שצברת:</h3>
+        <div id="total-hours">0</div>
+    </div>
+
+    <div class="hours-section" style="margin-top: 20px; background-color: #fff8dc; border: 1px solid #eddc8a;">
+        <h3>הזכיות שלי:</h3>
+        <div id="prize-info" style="font-size: 18px; font-weight: bold; color: #7a5300; min-height: 24px;">אין זכייה עדיין</div>
+    </div>
+
+    <div class="table-section">
+        <h3>היסטוריית התיקופים:</h3>
+        <div class="table-wrapper">
+            <table id="history-table">
+                <thead>
+                    <tr>
+                        <th>תאריך כניסה</th>
+                        <th>תאריך יציאה</th>
+                        <th>משך שעות</th>
+                    </tr>
+                </thead>
+                <tbody id="history-body">
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="stage-buttons" aria-label="בחירת שלב להצגה">
+        <button class="stage-btn" data-stage="A" type="button">הצג שלב א'</button>
+        <button class="stage-btn" data-stage="B" type="button">הצג שלב ב'</button>
+        <button class="stage-btn" data-stage="C" type="button">הצג שלב ג'</button>
+        <button class="stage-btn" data-stage="D" type="button">הצג שלב ד'</button>
+    </div>
+</div>
+
+<script src="../js/db.js"></script>
+    <script src="../js/studentInfo.js"></script>
+
+</body>
+</html>

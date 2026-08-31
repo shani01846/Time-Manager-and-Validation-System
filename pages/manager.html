@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+ 
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../css/manager.css">
+  <link rel="icon" type="png" href="../images/לוגו אורחות חיים ללא תמונה-01.png">
+  <title>עמוד מנהל</title>
+</head>
+<body>
+  <div class="manager-page">
+    <header class="topbar">
+      <h2>כניסת מנהל</h2>
+      <a class="return-icon" href="../index.html" aria-label="חזרה לדף הבית">⬅️</a>
+    </header>
+
+    <div id="loginSection" class="card login-card">
+      <label for="adminPassword">סיסמה:</label>
+      <input type="password" id="adminPassword" autocomplete="current-password">
+      <button type="button" id="adminLoginBtn" class="login-submit">כניסה</button>
+      <p id="loginError" aria-live="polite"></p>
+    </div>
+
+    <main id="adminPanel" class="hidden admin-panel">
+      <div class="dashboard-header">
+        <span class="dashboard-kicker">לוח בקרה</span>
+        <h3>ניהול המערכת</h3>
+        <p>בחר פעולה כדי לנהל את התלמידים, התיקוף וההגרלות בצורה פשוטה וברורה.</p>
+      </div>
+
+      <div class="dashboard-grid">
+        <button type="button" class="action-card" data-open-panel="pointsPanel" data-title="עדכון נקודות משתמש">
+          <span class="action-icon">💳</span>
+          <span class="action-text">נקודות</span>
+          <small>הוספה/עדכון שעות</small>
+        </button>
+
+        <button type="button" class="action-card" data-open-panel="attendanceSettingsSection" data-title="הגדרות תיקוף">
+          <span class="action-icon">🕒</span>
+          <span class="action-text">תיקוף</span>
+          <small>זמני כניסה ויציאה</small>
+        </button>
+
+        <button type="button" class="action-card" data-open-panel="stageAdminSection" data-title="ניהול שלבים">
+          <span class="action-icon">📍</span>
+          <span class="action-text">שלבים</span>
+          <small>שינוי שלב נוכחי</small>
+        </button>
+
+        <button type="button" class="action-card" data-open-panel="uidChangeSection" data-title="החלפת מזהה תלמיד">
+          <span class="action-icon">🆔</span>
+          <span class="action-text">מזהים</span>
+          <small>שינוי כרטיס תלמיד</small>
+        </button>
+
+        <button type="button" class="action-card" data-open-panel="lotteryAdminSection" data-title="הגדרות זכייה">
+          <span class="action-icon">🎁</span>
+          <span class="action-text">זכייה</span>
+          <small>הגדרות פרסים</small>
+        </button>
+
+        <button type="button" class="action-card" data-open-panel="lotteryHistorySection" data-title="היסטוריית זכיות">
+          <span class="action-icon">📜</span>
+          <span class="action-text">היסטוריה</span>
+          <small>רשימת זכיות</small>
+        </button>
+
+        <button type="button" class="action-card" data-open-panel="giftsPanel" data-title="ניהול מתנות">
+          <span class="action-icon">🎁</span>
+          <span class="action-text">מתנות</span>
+          <small>רשימת מתנות קיימות</small>
+        </button>
+
+        <button type="button" class="action-card action-card--accent" onclick="window.location.href='./register.html'">
+          <span class="action-icon">📝</span>
+          <span class="action-text">הרשמה</span>
+          <small>עבור לדף הרשמה</small>
+        </button>
+
+        <button type="button" class="action-card" data-open-panel="listPanel" data-title="נקודות כל התלמידים">
+          <span class="action-icon">📊</span>
+          <span class="action-text">כל התלמידים</span>
+          <small>הצג נקודות לכולם</small>
+        </button>
+
+      </div>
+
+      <section id="pointsPanel" class="panel-card admin-panel-section" aria-label="עדכון נקודות משתמש" data-dialog-title="עדכון נקודות משתמש">
+        <div class="section-header">
+          <h3>עריכת נקודות למשתמש</h3>
+        </div>
+
+        <div class="form-grid two-up">
+          <div class="field-group">
+            <label for="userId">קוד זיהוי:</label>
+            <input type="password" id="userId" autocomplete="off">
+          </div>
+          <div class="field-group">
+            <label for="hours">שעות להוספה:</label>
+            <input type="text" id="hours" onfocus="kbOpen(this)" readonly inputmode="numeric">
+          </div>
+          <div class="field-group">
+            <label for="minutes">דקות להוספה:</label>
+            <input type="text" id="minutes" onfocus="kbOpen(this)" readonly inputmode="numeric">
+          </div>
+        </div>
+
+        <div class="panel-actions single">
+          <button type="button" onclick="updatePoints()">עדכן</button>
+        </div>
+        <p id="updateMessage" aria-live="polite"></p>
+      </section>
+
+      <section id="attendanceSettingsSection" class="panel-card admin-panel-section" aria-label="הגדרות תיקוף" data-dialog-title="הגדרות תיקוף">
+        <div class="section-header">
+          <h3>הגדרות תיקוף</h3>
+        </div>
+
+        <div class="settings-groups">
+          <fieldset class="settings-group">
+            <legend>מכינה</legend>
+            <div class="time-grid">
+              <div class="field-group">
+                <label for="mechina-morningStart">פתיחת בוקר</label>
+                <input id="mechina-morningStart" type="time" step="60">
+              </div>
+              <div class="field-group">
+                <label for="mechina-morningEnd">סגירת בוקר</label>
+                <input id="mechina-morningEnd" type="time" step="60">
+              </div>
+              <div class="field-group">
+                <label for="mechina-eveningStart">פתיחת ערב</label>
+                <input id="mechina-eveningStart" type="time" step="60">
+              </div>
+              <div class="field-group">
+                <label for="mechina-eveningEnd">סגירת ערב</label>
+                <input id="mechina-eveningEnd" type="time" step="60">
+              </div>
+              <div class="field-group full-width">
+                <label for="mechina-specialStart">פתיחת תיקוף מיוחד</label>
+                <input id="mechina-specialStart" type="time" step="60">
+              </div>
+              <div class="field-group full-width">
+                <label for="mechina-specialEnd">סגירת תיקוף מיוחד</label>
+                <input id="mechina-specialEnd" type="time" step="60">
+              </div>
+            </div>
+          </fieldset>
+
+          <fieldset class="settings-group">
+            <legend>ישיבה</legend>
+            <div class="time-grid">
+              <div class="field-group">
+                <label for="yeshiva-morningStart">פתיחת בוקר</label>
+                <input id="yeshiva-morningStart" type="time" step="60">
+              </div>
+              <div class="field-group">
+                <label for="yeshiva-morningEnd">סגירת בוקר</label>
+                <input id="yeshiva-morningEnd" type="time" step="60">
+              </div>
+              <div class="field-group">
+                <label for="yeshiva-eveningStart">פתיחת ערב</label>
+                <input id="yeshiva-eveningStart" type="time" step="60">
+              </div>
+              <div class="field-group">
+                <label for="yeshiva-eveningEnd">סגירת ערב</label>
+                <input id="yeshiva-eveningEnd" type="time" step="60">
+              </div>
+              <div class="field-group full-width">
+                <label for="yeshiva-specialStart">פתיחת תיקוף מיוחד</label>
+                <input id="yeshiva-specialStart" type="time" step="60">
+              </div>
+              <div class="field-group full-width">
+                <label for="yeshiva-specialEnd">סגירת תיקוף מיוחד</label>
+                <input id="yeshiva-specialEnd" type="time" step="60">
+              </div>
+            </div>
+          </fieldset>
+        </div>
+
+        <div class="panel-actions single">
+          <button id="saveAttendanceSettingsBtn" type="button" onclick="saveAttendanceSettingsFromForm()">שמור הגדרות תיקוף</button>
+        </div>
+        <p id="settingsMessage" aria-live="polite"></p>
+      </section>
+
+      <section id="stageAdminSection" class="panel-card admin-panel-section" aria-label="ניהול שלבים" data-dialog-title="ניהול שלבים">
+        <div class="section-header">
+          <h3>ניהול שלבים</h3>
+        </div>
+        <p class="stage-status">שלב נוכחי: <strong id="currentStageLabel">A</strong></p>
+
+        <div class="form-grid single-column">
+          <div class="field-group">
+            <label for="currentStageSelect">בחר שלב</label>
+            <select id="currentStageSelect">
+              <option value="A">שלב א</option>
+              <option value="B">שלב ב</option>
+              <option value="C">שלב ג</option>
+              <option value="D">שלב ד</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="panel-actions split">
+          <button id="saveStageBtn" type="button">שמור שלב</button>
+          <button id="nextStageBtn" type="button" class="secondary">העבר לשלב הבא</button>
+        </div>
+        <p id="stageMessage" aria-live="polite"></p>
+      </section>
+
+      <section id="uidChangeSection" class="panel-card admin-panel-section" aria-label="החלפת מזהה תלמיד" data-dialog-title="החלפת מזהה תלמיד">
+        <div class="section-header">
+          <h3>החלפת מזהה תלמיד</h3>
+        </div>
+
+        <div class="form-grid single-column">
+          <div class="field-group">
+            <label for="oldUidInput">מזהה נוכחי</label>
+            <input id="oldUidInput" type="text" autocomplete="off">
+          </div>
+          <div class="field-group">
+            <label for="newUidInput">מזהה חדש</label>
+            <input id="newUidInput" type="text" autocomplete="off">
+          </div>
+        </div>
+
+        <div class="panel-actions single">
+          <button id="changeUidBtn" type="button">החלף מזהה</button>
+        </div>
+        <p id="uidChangeMessage" aria-live="polite"></p>
+      </section>
+
+      <section id="lotteryAdminSection" class="panel-card admin-panel-section" aria-label="הגדרות זכייה" data-dialog-title="הגדרות זכייה">
+        <div class="section-header">
+          <h3>הגדרות זכייה</h3>
+        </div>
+
+        <div class="form-grid single-column">
+          <div class="field-group">
+            <label for="lotteryWinChance">סיכוי זכייה (%)</label>
+            <input id="lotteryWinChance" type="number" min="0" max="100" step="1" value="33">
+          </div>
+        </div>
+
+        <div id="lotteryPrizeRows" class="lottery-prize-list" aria-live="polite"></div>
+
+        <div class="panel-actions split">
+          <button id="addLotteryPrizeBtn" type="button" class="secondary">הוסף פרס</button>
+          <button id="saveLotterySettingsBtn" type="button" onclick="saveLotterySettingsFromForm()">שמור הגדרות זכייה</button>
+        </div>
+        <p id="lotterySettingsMessage" aria-live="polite"></p>
+
+        <div class="section-header" style="margin-top:14px;">
+          <h3>מתנות קיימות</h3>
+        </div>
+        <div id="currentPrizeSummary" class="lottery-prize-summary" aria-live="polite"></div>
+      </section>
+
+      <section id="lotteryHistorySection" class="panel-card admin-panel-section" aria-label="היסטוריית זכיות" data-dialog-title="היסטוריית זכיות">
+        <div class="section-header">
+          <h3>היסטוריית זכיות</h3>
+        </div>
+
+        <div id="lotteryHistoryContainer" class="lottery-history-container" aria-live="polite"></div>
+      </section>
+
+      <section id="giftsPanel" class="panel-card admin-panel-section" aria-label="ניהול מתנות" data-dialog-title="ניהול מתנות">
+        <div class="section-header">
+          <h3>מתנות קיימות</h3>
+        </div>
+        <div id="gifts-list-container"></div>
+        <div class="panel-actions split" style="margin-top:16px">
+          <button type="button" onclick="saveGiftEdits()">✅ שמור שינויים</button>
+        </div>
+        <p id="giftsMessage" aria-live="polite"></p>
+      </section>
+
+      <section id="listPanel" class="panel-card admin-panel-section" aria-label="נקודות כל התלמידים" data-dialog-title="נקודות כל התלמידים">
+        <div class="section-header">
+          <h3>נקודות כל התלמידים</h3>
+        </div>
+        <div class="panel-actions single">
+          <button type="button" onclick="list()">הצג נקודות לכל תלמיד</button>
+        </div>
+        <div class="table-wrapper">
+          <table id="list" class="hidden2">
+            <thead>
+              <tr>
+                <th>מזהה</th>
+                <th>שם</th>
+                <th>שעות שלב א'</th>
+                <th>שעות שלב ב'</th>
+                <th>שעות שלב ג'</th>
+                <th>שעות שלב ד'</th>
+                <th>פעולות</th>
+              </tr>
+            </thead>
+            <tbody id="list-body"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <a id="registerFromManagerButton" href="./register.html" class="side-menu-button hidden" aria-label="הרשמה למבצע">
+        <span>🧾</span>
+        <span>הרשמה</span>
+      </a>
+    </main>
+
+    <div id="adminDialog" class="admin-dialog" aria-hidden="true">
+      <div class="dialog-backdrop" data-close-dialog="true"></div>
+      <div class="dialog-panel" role="dialog" aria-modal="true" aria-labelledby="dialogTitle">
+        <div class="dialog-header">
+          <h4 id="dialogTitle">כותרת</h4>
+          <button type="button" class="dialog-close" data-close-dialog="true" aria-label="סגור">✕</button>
+        </div>
+        <div id="dialogContent" class="dialog-content"></div>
+      </div>
+    </div>
+
+    <div id="custom-keyboard" aria-label="מקלדת קלט">
+      <div class="keyboard-layout keyboard-letters">
+        <div class="kb-row">
+          <button type="button" onclick="kbPress('ק')">ק</button>
+          <button type="button" onclick="kbPress('ר')">ר</button>
+          <button type="button" onclick="kbPress('א')">א</button>
+          <button type="button" onclick="kbPress('ט')">ט</button>
+          <button type="button" onclick="kbPress('ו')">ו</button>
+          <button type="button" onclick="kbPress('ן')">ן</button>
+          <button type="button" onclick="kbPress('ם')">ם</button>
+          <button type="button" onclick="kbPress('פ')">פ</button>
+        </div>
+        <div class="kb-row">
+          <button type="button" onclick="kbPress('ש')">ש</button>
+          <button type="button" onclick="kbPress('ד')">ד</button>
+          <button type="button" onclick="kbPress('ג')">ג</button>
+          <button type="button" onclick="kbPress('כ')">כ</button>
+          <button type="button" onclick="kbPress('ע')">ע</button>
+          <button type="button" onclick="kbPress('י')">י</button>
+          <button type="button" onclick="kbPress('ח')">ח</button>
+          <button type="button" onclick="kbPress('ל')">ל</button>
+          <button type="button" onclick="kbPress('ך')">ך</button>
+          <button type="button" onclick="kbPress('ף')">ף</button>
+        </div>
+        <div class="kb-row">
+          <button type="button" onclick="kbPress('ז')">ז</button>
+          <button type="button" onclick="kbPress('ס')">ס</button>
+          <button type="button" onclick="kbPress('ב')">ב</button>
+          <button type="button" onclick="kbPress('ה')">ה</button>
+          <button type="button" onclick="kbPress('נ')">נ</button>
+          <button type="button" onclick="kbPress('מ')">מ</button>
+          <button type="button" onclick="kbPress('צ')">צ</button>
+          <button type="button" onclick="kbPress('ת')">ת</button>
+          <button type="button" onclick="kbPress('ץ')">ץ</button>
+        </div>
+        <div class="kb-row">
+          <button type="button" style="flex: 2;" onclick="kbPress(' ')">רווח</button>
+          <button type="button" onclick="kbPress('back')">⌫</button>
+          <button type="button" class="kb-ok" onclick="kbClose()">סגור</button>
+        </div>
+      </div>
+
+      <div class="keyboard-layout keyboard-numeric">
+        <div class="kb-row">
+          <button type="button" onclick="kbPress('7')">7</button>
+          <button type="button" onclick="kbPress('8')">8</button>
+          <button type="button" onclick="kbPress('9')">9</button>
+        </div>
+        <div class="kb-row">
+          <button type="button" onclick="kbPress('4')">4</button>
+          <button type="button" onclick="kbPress('5')">5</button>
+          <button type="button" onclick="kbPress('6')">6</button>
+        </div>
+        <div class="kb-row">
+          <button type="button" onclick="kbPress('1')">1</button>
+          <button type="button" onclick="kbPress('2')">2</button>
+          <button type="button" onclick="kbPress('3')">3</button>
+        </div>
+        <div class="kb-row">
+          <button type="button" onclick="kbPress('-')">−</button>
+          <button type="button" onclick="kbPress('0')">0</button>
+          <button type="button" onclick="kbPress('back')">⌫</button>
+        </div>
+        <div class="kb-row">
+          <button type="button" class="kb-ok" onclick="kbClose()">סגור</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="list-container" class="hidden"></div>
+  </div>
+
+  <script src="../js/db.js"></script>
+  <script src="../js/admin.js"></script>
+</body>
+</html>
+</html>

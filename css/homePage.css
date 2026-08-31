@@ -1,0 +1,539 @@
+body {
+    font-family: "David Libre", "Noto Serif Hebrew", serif;
+    background:   linear-gradient(rgba(255, 223, 147, 0.4), rgba(81, 64, 5, 0.4)),
+url("../images/5.png") no-repeat center center fixed;
+    background-size: cover; /* מוקטנת לחצי מהגודל המקורי */
+    background-position: center; /* למעלה ובמרכז */
+    margin: 0;
+    padding: 0;
+    direction: rtl;
+    text-align: center;
+   height: 100vh;
+  overflow: hidden;
+}
+.floating-div {
+    position: fixed;                /* מיקום קבוע */
+    top: -10%;                        /* למרכז אנכית */
+    right: -2%;                       /* למרכז אופקית */
+    transform: translate(-50%, -50%); /* למרכז את הדיב בדיוק */
+    min-width: 100vw;                     /* רוחב 80% מהמסך */
+    min-height: 120vh;                    /* גובה 60% מהמסך */
+    background-image: url("../images/10b.png"); /* כתובת התמונה */
+    background-size: cover;          /* התמונה תתפוס את כל שטח הדיב */
+    background-position: center;     /* תמונה ממורכזת בתוך הדיב */
+    color: white;                    /* צבע טקסט */
+    padding: 20px;                   /* ריפוד סביב התוכן */
+    border-radius: 10px;             /* קצוות מעוגלים */
+    z-index: 1000;                   /* מוודא שהדיב מעל שאר האלמנטים בדף */
+    font-size: 20px;                 /* גודל גופן */
+    text-align: center;              /* טקסט ממורכז */
+    display: flex;                   /* שימוש ב-flex כדי ליישר את הטקסט במרכז הדיב */
+    align-items: center;             /* יישור אנכי במרכז */
+    justify-content: center;         /* יישור אופקי במרכז */
+    opacity: 0;                      /* מתחיל מעומעם */
+    animation: fadeInOut 15s ease-in-out forwards; /* הנפשה מעומעמת */
+}
+#myFloatingDiv60
+{
+background-image: url("../images/60b.png"); /* כתובת התמונה */
+}
+#myFloatingDiv50
+{
+background-image: url("../images/50b.png"); /* כתובת התמונה */
+}
+#myFloatingDiv40
+{
+background-image: url("../images/40b.png"); /* כתובת התמונה */
+}
+#myFloatingDiv30
+{
+background-image: url("../images/30b.png"); /* כתובת התמונה */
+}#myFloatingDiv20
+{
+background-image: url("../images/20b.png"); /* כתובת התמונה */
+}
+#showGift
+{
+background-image: url("../images/gift.png"); /* כתובת התמונה */
+}
+#showGoal
+{
+    background-image: url("../images/goal.png"); /* כתובת התמונה */
+
+}
+#myFloatingDiv10
+{
+background-image: url("../images/10b.png"); /* כתובת התמונה */
+}
+/* הנפשה מעומעמת ומדליקה */
+@keyframes fadeInOut {
+    0% {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+    15% {
+        opacity: 1;
+        transform: scale(0.65);
+    }
+    50% {
+        opacity: 1;  /* נשאר גלוי רוב הזמן */
+        transform: scale(0.65);
+    }
+     80% {
+        opacity: 1;  /* נשאר גלוי רוב הזמן */
+        transform: scale(0.65);
+    }
+    100% {
+        opacity: 0.8;
+        transform: scale(0.65);
+    }
+}
+
+
+
+header{
+
+    display: flex;
+    justify-content: center;
+}
+#logo-container {
+    width: 100%;
+    text-align: center;
+    position: fixed;     /* תמיד למעלה */
+    top: 0;
+    left: 0;
+    padding: 30px 0;
+    background-color: white; /* לא חובה, אבל שומר שהלוגו ייראה על רקעים כהים */
+    z-index: 1000;       /* מבטיח שהלוגו מעל כל תוכן אחר */
+  }
+  
+  #logo-img {
+    width: 200px;
+    height: auto;
+    margin-top: 10px;
+
+  }
+
+#logo-img2 {
+    width: 200px;
+    height: auto;
+    margin-top: 10px;
+
+  }
+.card {
+    background: rgba(255, 255, 255, 0.3);
+    padding: 40px 50px;
+    margin-top: 20px;
+    border-radius: 24px;
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.3);
+    font-size: larger;
+    font-family: Guttman Stam;
+    width: 700px;
+    text-align: center;
+    backdrop-filter: blur(3px);
+}
+#links{
+    display: inline-flex;
+    justify-content: space-around;
+    gap: 50px;
+
+}
+.card h2 {
+    font-size: 37px;
+    color: #000000;
+    margin-bottom: 25px;
+    border-bottom: 2px solid #d4af7f;
+    padding-bottom: 10px;
+}
+
+.card input[type="text"] {
+    width: 100%;
+    padding: 12px;
+    margin: 12px 0;
+    border: 1px solid #c6a672;
+    border-radius: 10px;
+    font-size: 16px;
+    background-color: #fffefc;
+}
+
+.card button {
+    background-color: #8b5e3c;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 15px;
+}
+
+.card button:hover {
+    background-color: #6f4429;
+}
+
+#registration-message {
+    margin-top: 15px;
+    font-size: 15px;
+    font-weight: bold;
+    color: red;
+}
+
+.link {
+    display: inline-block;
+    margin-top: 20px;
+    color: #d4d5d7;
+    font-weight: bold;
+    text-decoration: none;
+    font-size: 20px;
+    padding: 10px;
+    border-radius:14px;
+    box-shadow: 0 0 25px rgba(0, 0, 0);
+    background-color: #01204bd2;
+}
+.link:hover {
+    color:   #5c4725;
+    transition: color 0.5s ease;
+    
+}
+#manager{
+    color: #ffffff;
+    font-weight: bold;
+    text-decoration: none;
+    font-size: 20px;
+    text-align: center;
+  margin-top: 500px;
+}
+.main-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 20vh;
+  }
+  .link:hover{
+    transform: scale(1.1); /* הגדלה של 20% */
+    transition: transform 0.5s ease;
+  }
+  .validate-box {
+    background: #ffffff;
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 350px;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    text-align: center;
+}
+
+.validate-box input {
+    width: 90%;
+    padding: 12px;
+    font-size: 18px;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.validate-box h3 {
+    margin-bottom: 12px;
+}
+
+
+
+
+
+   
+
+
+
+    
+/* h2{
+  font-family: Guttman Stam;
+font-size: 30px;
+
+} */
+ h2 {
+    font-family: 'Guttman Stam', sans-serif;
+    font-size: 37px;
+    color: rgb(0, 0, 0);
+    text-align: center;
+    font-weight: bold;
+
+    /* זוהר עדין */
+    text-shadow: 0 0 3px #fff, 0 0 5px rgb(0, 0, 0);
+    
+    /* אנימציה קטנה של זוהר */
+    animation: glow 2s infinite alternate;
+}
+
+@keyframes glow {
+    0% {
+        text-shadow: 0 0 2px #fff, 0 0 4px rgb(29, 32, 19);
+    }
+    50% {
+        text-shadow: 0 0 3px #fff, 0 0 6px rgb(29, 32, 19);
+    }
+    100% {
+        text-shadow: 0 0 2px #fff, 0 0 4px rgb(29, 32, 19);
+    }
+}
+
+    .Vcard {
+      margin-top: 50px;
+      border-radius: 20px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+      text-align: center;
+      width: 200px;
+      height: 20px;
+    }
+
+    .Vinput, .Vbutton {
+      width: 70%;
+      padding: 12px;
+      margin-top: 1rem;
+      font-size: 1rem;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+    }
+
+    .Vbutton {
+      background-color: #28a745;
+      color: white;
+      border: none;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .Vbutton:hover {
+      background-color: #218838;
+    }
+
+    /* #validation-message {
+      margin-top: 1rem;
+      font-weight: bold;
+      color: #155724;
+      font-size: 1.1rem;
+    } */
+
+#validation-message {
+    position: fixed;
+    top: 38%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10000;
+    pointer-events: none;
+    text-align: center;
+    font-family: 'Calibri', sans-serif;
+    font-weight: 700;
+    color: #23005b;
+    text-shadow: 3px 3px 15px rgba(0, 0, 0, 0.22);
+    line-height: 1.35;
+    font-size: clamp(1.8rem, 2.8vw, 3.5rem);
+}
+
+.validation-bubble {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.38rem;
+    padding: 1.2rem 1.7rem;
+    border-radius: 24px;
+    background: rgba(255, 255, 255, 0.92);
+    border: 1px solid rgba(126, 92, 168, 0.2);
+    box-shadow: 0 12px 28px rgba(46, 32, 88, 0.15);
+    min-width: min(72vw, 420px);
+}
+
+.validation-bubble--win {
+    background: linear-gradient(180deg, rgba(255, 244, 164, 0.98), rgba(255, 255, 255, 0.96));
+    border-color: rgba(221, 149, 0, 0.75);
+    box-shadow: 0 16px 32px rgba(171, 112, 0, 0.22);
+}
+
+.validation-line {
+    display: block;
+}
+
+.validation-greeting {
+    font-size: 1.05em;
+    font-weight: 800;
+}
+
+.validation-type {
+    font-size: 0.82em;
+    opacity: 0.9;
+}
+
+.validation-action {
+    font-size: 0.88em;
+    opacity: 0.95;
+}
+
+.validation-prize {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    font-size: 1.2em;
+    font-weight: 900;
+    letter-spacing: 0.02em;
+    color: #7a3d00;
+    padding: 0.7rem 1.2rem;
+    border-radius: 999px;
+    background: linear-gradient(180deg, rgba(255, 224, 98, 0.98), rgba(255, 196, 0, 0.8));
+    border: 2px solid rgba(162, 104, 0, 0.7);
+    box-shadow: 0 8px 18px rgba(194, 126, 0, 0.25);
+    transform: scale(1.02);
+}
+
+.gift-icon {
+    font-size: 1.5em;
+    filter: drop-shadow(0 2px 3px rgba(0,0,0,0.16));
+}
+
+#validation-message2 {
+    position: fixed;
+    top: 64%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10000;
+    pointer-events: none;
+    font-weight: 700;
+    color: #8b2f00;
+    font-family: 'Calibri', sans-serif;
+    font-size: 1.1rem;
+    text-align: center;
+    white-space: pre-line;
+    text-shadow: 3px 3px 15px rgba(0, 0, 0, 0.18);
+}
+    #points {
+      color: #333;
+      margin-top: 0.5rem;
+    }
+
+    /* .Vlink {
+      display: inline-block;
+      margin-top: 1.5rem;
+      text-decoration: none;
+      color: #007bff;
+    } */
+
+    /* נצנצים */
+    .sparkle {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      background: gold;
+      border-radius: 50%;
+      animation: sparkleAnim 0.8s ease-out forwards;
+    }
+.hidden-input {
+    width: 0;
+    height: 0;
+    border: none;
+    padding: 0;
+    margin: 0;
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* מרכז את home-page */
+#home-page {
+    max-width: 800px;
+    height: 50vh;
+    width:900px;
+    margin: 10px auto;
+    margin-top: 0px;
+    /* margin-top: 25px; */
+    padding: 120px;
+    /* background-color: rgba(250, 245, 209, 0.7); */
+    border-radius: 15px;
+    /* box-shadow: 0 4px 20px rgba(0,0,0,0.25); */
+    text-align: center;
+    font-family: Arial, sans-serif;
+    z-index: 2;           /* תמיד מעל תוכן אחר */
+
+}
+
+/* תפריט צד מודרני */
+#side-menu {
+    position: fixed;
+    top: 100px;
+    right: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* עיצוב אחיד לכל הכפתורים */
+.side-menu-button {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* רווח בין האייקון לטקסט */
+    padding: 12px 20px;
+    text-decoration: none;
+    color: rgb(40, 22, 145);
+    background-color: rgb(254, 254, 255);
+    border-radius: 12px;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.2);
+    font-weight: bold;
+    transition: all 0.3s ease;
+    font-size: 16px;
+    font-family: Guttman Stam;
+}
+
+.side-menu-button:hover {
+    background-color: #284fc4;
+    transform: translateX(-3px);
+    box-shadow: 0 5px 12px rgba(0,0,0,0.3);
+}
+
+/* אייקונים קטנים */
+.side-menu-button i {
+    font-size: 18px;
+}
+
+/* .sparkle {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: gold;
+    border-radius: 50%;
+    pointer-events: none;
+    opacity: 0.8;
+    animation: sparkleAnim 0.8s ease-out forwards;
+} */
+
+/* @keyframes sparkleAnim {
+    0% { transform: scale(0); opacity: 1; }
+    50% { transform: scale(1.2); opacity: 1; }
+    100% { transform: scale(0); opacity: 0; }
+} */
+
+    @keyframes sparkleAnim {
+      0% { transform: scale(1); opacity: 1; }
+      100% { transform: translateY(-80px) scale(0.2); opacity: 0; }
+    }
+/* Overlay שנוצר דינמית על ידי JavaScript בעת תיקוף - מעל התוכן אבל מתחת להודעה */
+.validation-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none; /* לא יפריע לאינטראקציה */
+    opacity: 0;
+    transition: opacity 0.6s ease;
+}
+
+/* ודא שהנצנצים יופיעו מעל ה-overlay */
+.sparkle {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: gold;
+    border-radius: 50%;
+    animation: sparkleAnim 0.8s ease-out forwards;
+    will-change: transform, opacity;
+    z-index: 9992; /* מעל ה-overlay (9990) אך מתחת להודעת תיקוף (9999) */
+    pointer-events: none;
+}

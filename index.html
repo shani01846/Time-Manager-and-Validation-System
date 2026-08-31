@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+
+<html lang="he">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>מבצע והעמידו תלמידים</title>
+    <link rel="stylesheet" href="css/homePage.css">
+    <style>
+.top-students {
+    position: fixed;
+    bottom: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 1.5rem 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: sans-serif;
+    z-index: 9999;
+    width: 75vw;
+    max-width: 900px;
+    background-color: #fffbb265;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    border: 1px solid #e0e0e0;
+    z-index: 1;           /* תמיד מעל תוכן אחר */
+
+}
+
+.top-students h3 {
+    color: #333;
+    font-family: Guttman Stam, sans-serif;
+    margin: 0 0 1rem 0;
+    font-size: 1.3rem;
+    font-weight: bold;
+    text-align: center;
+}
+
+#top-students-list {
+    display: flex;
+    gap: 1rem;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+#top-students-list li {
+    background-color: #ffffff;
+    color: #333;
+    font-size: 0.95rem;
+    font-weight: bold;
+    text-align: center;
+    padding: 0.6rem 1.2rem;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+}
+
+#top-students-list li:first-child {
+    background-color: #ffc107;
+    color: #000;
+    font-size: 1.05rem;
+    border: 1px solid #e0a800;
+}
+
+    </style>
+</head>
+<body>
+   
+<header><div id="logo-img">
+    <img id="logo-img2" src="images/לוגו אורחות חיים ללא תמונה-01.png">
+
+
+</div></header>
+        <p id="validation-message"></p>
+
+<main class="main-content">
+    
+    <div id="home-page">
+
+        <h2>ברוכים הבאים</h2>
+        <h2>זמן אלול</h2>
+        <h2>שלב א'</h2>
+        <p></p>
+         <div class="Vcard" id="validation-page">
+        <!-- <h2>תיקוף תלמידים</h2> -->
+                 <br>
+
+        <input class="Vinput hidden-input" type="text" id="student-id" inputmode="none">
+                <br>
+
+        <!-- <button class="Vbutton" onclick="validateStudent()">תיקוף והוספת נקודות</button> -->
+        <br>
+                <br>
+        <br>
+        <br>
+ <h3 id="validation-message2"></h3>
+                <br>
+
+        <p id="points"></p>
+        <br>
+        <div  id="register">
+        </div>
+      </div>
+        <div class="top-students">
+    <h3>🌟🌟🌟 התלמידים המובילים 🌟🌟🌟</h3>
+    <ul id="top-students-list"></ul>
+    </div>
+
+    <div id="side-menu">
+    <!-- <a href="pages/register.html" class="side-menu-button">
+<span style="font-size: 1.2em;">🧾 הרשמה</span>
+    </a> -->
+    <a href="pages/studentInfo.html" class="side-menu-button">
+  <span style="font-size: 1.2rem;">👤</span> אזור אישי
+    </a>
+    <a href="pages/manager.html" class="side-menu-button">
+<span style="font-size:1.2rem;">🔑</span> כניסת מנהל
+    </a>
+</div>
+        <!-- <div id="links">
+            
+        <a href="pages/register.html" class="link">להרשמה למבצע</a>
+        
+        <a href="pages/validate.html" class="link">לתיקוף</a>
+    </div> -->
+
+</div>
+</main>
+    
+    <script>
+
+    </script>
+    <!-- <br> -->
+    <!-- <a href="pages/studentInfo.html" id="manager">אזור אישי</a> -->
+
+    <!-- <br>
+    <br> -->
+    <!-- <a href="pages/manager.html" id="manager">כניסת מנהל</a> -->
+    <script src="js/db.js"></script>
+     <script src="js/homePage.js"></script>
+</body>
+</html>

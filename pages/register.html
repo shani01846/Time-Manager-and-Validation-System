@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="png" href="../images/לוגו אורחות חיים ללא תמונה-01.png">
+    <link rel="stylesheet" href="../css/register.css">
+    <title>רישום</title>
+</head>
+<body>
+
+    <div class="card" id="registration-page">
+        <h2>הרשמה למבצע</h2>
+        <br>
+        <input type="text" id="student-name" placeholder="שם תלמיד">
+        <br>
+        <input type="text" id="student-id-reg" placeholder="מזהה תלמיד">
+        <br>
+    <div class="pill-toggle">
+    <input type="radio" id="type-yeshiva" name="institution" value="yeshiva" checked>
+    <label for="type-yeshiva">ישיבה</label>
+    
+    <input type="radio" id="type-mechina" name="institution" value="mechina">
+    <label for="type-mechina">מכינה</label>
+</div>
+        <button onclick="registerStudent()">הירשם</button>
+        <br>
+        <p id="registration-message"></p>
+      <div id="custom-keyboard">
+    <div class="kb-row">
+        <button onclick="kbPress('ק')">ק</button>
+        <button onclick="kbPress('ר')">ר</button>
+        <button onclick="kbPress('א')">א</button>
+        <button onclick="kbPress('ט')">ט</button>
+        <button onclick="kbPress('ו')">ו</button>
+        <button onclick="kbPress('ן')">ן</button>
+        <button onclick="kbPress('ם')">ם</button>
+        <button onclick="kbPress('פ')">פ</button>
+    </div>
+    <div class="kb-row">
+        <button onclick="kbPress('ש')">ש</button>
+        <button onclick="kbPress('ד')">ד</button>
+        <button onclick="kbPress('ג')">ג</button>
+        <button onclick="kbPress('כ')">כ</button>
+        <button onclick="kbPress('ע')">ע</button>
+        <button onclick="kbPress('י')">י</button>
+        <button onclick="kbPress('ח')">ח</button>
+        <button onclick="kbPress('ל')">ל</button>
+        <button onclick="kbPress('ך')">ך</button>
+        <button onclick="kbPress('ף')">ף</button>
+    </div>
+    <div class="kb-row">
+        <button onclick="kbPress('ז')">ז</button>
+        <button onclick="kbPress('ס')">ס</button>
+        <button onclick="kbPress('ב')">ב</button>
+        <button onclick="kbPress('ה')">ה</button>
+        <button onclick="kbPress('נ')">נ</button>
+        <button onclick="kbPress('מ')">מ</button>
+        <button onclick="kbPress('צ')">צ</button>
+        <button onclick="kbPress('ת')">ת</button>
+        <button onclick="kbPress('ץ')">ץ</button>
+    </div>
+    <div class="kb-row">
+        <button onclick="kbPress('1')">1</button>
+        <button onclick="kbPress('2')">2</button>
+        <button onclick="kbPress('3')">3</button>
+        <button onclick="kbPress('4')">4</button>
+        <button onclick="kbPress('5')">5</button>
+        <button onclick="kbPress('6')">6</button>
+        <button onclick="kbPress('7')">7</button>
+        <button onclick="kbPress('8')">8</button>
+        <button onclick="kbPress('9')">9</button>
+        <button onclick="kbPress('0')">0</button>
+    </div>
+    <div class="kb-row">
+        <button style="flex: 2;" onclick="kbPress(' ')">רווח</button>
+        <button onclick="kbPress('back')">⌫</button>
+        <button class="kb-ok" onclick="kbClose()">סגור</button>
+    </div>
+</div>
+        <br>
+        <a href="../index.html" class="link">חזרה לעמוד הבית</a>
+    </div>
+    <script src="../js/db.js"></script>
+<script src="../js/register.js"></script>
+</body>
+</html>

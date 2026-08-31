@@ -1,0 +1,81 @@
+    body {
+      background: url("../images/לוגו\ אורחות\ חיים\ ללא\ תמונה-01.png") no-repeat center center fixed;
+    background-size: 20%; /* מוקטנת לחצי מהגודל המקורי */
+    background-position: top center; /* למעלה ובמרכז */
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #ffffff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      transition: background-color 0.8s ease;
+    }
+h2{
+  font-family: Guttman Stam;
+
+}
+    .Vcard {
+      margin-top: 150px;
+      background: white;
+      padding: 2rem;
+      border-radius: 20px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+      text-align: center;
+      width: 700px;
+    }
+
+    .Vinput, .Vbutton {
+      width: 70%;
+      padding: 12px;
+      margin-top: 1rem;
+      font-size: 1rem;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+    }
+
+    .Vbutton {
+      background-color: #28a745;
+      color: white;
+      border: none;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .Vbutton:hover {
+      background-color: #218838;
+    }
+
+    #validation-message {
+      margin-top: 1rem;
+      font-weight: bold;
+      color: #155724;
+      font-size: 1.1rem;
+    }
+
+    #points {
+      color: #333;
+      margin-top: 0.5rem;
+    }
+
+    .Vlink {
+      display: inline-block;
+      margin-top: 1.5rem;
+      text-decoration: none;
+      color: #007bff;
+    }
+
+    /* נצנצים */
+    .sparkle {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      background: gold;
+      border-radius: 50%;
+      animation: sparkleAnim 0.8s ease-out forwards;
+    }
+
+    @keyframes sparkleAnim {
+      0% { transform: scale(1); opacity: 1; }
+      100% { transform: translateY(-80px) scale(0.2); opacity: 0; }
+    }

@@ -1,7 +1,7 @@
 # ⏱️ Time Manager & Validation System
 
 <p align="center">
-  <img src="images/לוגו אורחות חיים ללא תמונה-01.png" alt="Project Logo" width="180">
+  <img src="images/chipupLogo (1).png" alt="Project Logo" width="180">
 </p>
 
 <p align="center">
